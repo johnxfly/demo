@@ -27,9 +27,9 @@ class HelloRestControllerSpec extends Specification {
 
     def 'greet with name'(){
         when:
-        ResponseEntity<Greeting> entity = template.getForEntity("/rest?name=Bob", Greeting.class)
+        Greeting response = template.getForObject("/rest?name=Bob", Greeting.class)
 
         then:
-        entity.body.message == "Hello, Bob!"
+        response.message == "Hello, Bob!"
     }
 }
