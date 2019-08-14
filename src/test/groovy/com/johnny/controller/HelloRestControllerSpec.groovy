@@ -30,8 +30,6 @@ class HelloRestControllerSpec extends Specification {
         ResponseEntity<Greeting> entity = template.getForEntity("/rest?name=Bob", Greeting.class)
 
         then:
-        entity.statusCode == HttpStatus.OK
-        entity.headers.get("Content-Type") == [MediaType.APPLICATION_JSON_UTF8_VALUE]
         entity.body.message == "Hello, Bob!"
     }
 }
